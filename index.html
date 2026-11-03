@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيد ميلاد سعيد يا أحلى بنوتة في الكون 💖✨</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Marhey, Cairo & Reenie Beanie -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Marhey:wght@400;600;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --pink-main: #ff758c;
+            --pink-pastel: #ff7eb3;
+            --lavender-glow: #c084fc;
+            --rose-gold: #f472b6;
+        }
+
+        body {
+            font-family: 'Marhey', 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #2a0845 0%, #642b73 35%, #c6426e 70%, #ff758c 100%);
+            background-attachment: fixed;
+            color: #fff;
+            overflow-x: hidden;
+            user-select: none;
+        }
+
+        .font-cursive {
+            font-family: 'Reenie Beanie', cursive, sans-serif;
+        }
+
+        /* Glassmorphism Pink Frost */
+        .glass-pink {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1.5px solid rgba(255, 255, 255, 0.28);
+            box-shadow: 0 12px 35px 0 rgba(236, 72, 153, 0.25), inset 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-pink-soft {
+            background: rgba(255, 235, 245, 0.16);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .text-gradient-girly {
+            background: linear-gradient(135deg, #fff 15%, #ffd1dc 45%, #f472b6 80%, #fb7185 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .neon-girly-glow {
+            text-shadow: 0 0 18px rgba(244, 114, 182, 0.8), 0 0 35px rgba(192, 132, 252, 0.6);
+        }
+
+        /* Floating Balloon Animations */
+        @keyframes balloonWobble {
+            0%, 100% { transform: translateY(0) rotate(-4deg); }
+            50% { transform: translateY(-24px) rotate(4deg); }
+        }
+        .animate-balloon {
+            animation: balloonWobble 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { filter: drop-shadow(0 0 12px rgba(255, 117, 140, 0.8)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 24px rgba(192, 132, 252, 0.9)); transform: scale(1.04); }
+        }
+        .animate-pulse-glow {
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+
+        /* 3D Carousel Stage */
+        .carousel-scene {
+            perspective: 1400px;
+            transform-style: preserve-3d;
+        }
+
+        .polaroid-card {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: center bottom;
+        }
+
+        /* Flip Compliment Cards */
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            transition: transform 0.7s;
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* Candle Flame Flickering */
+        @keyframes flameFlicker {
+            0%, 100% { transform: scale(1, 1) rotate(0deg); filter: drop-shadow(0 0 10px #fb7185); }
+            20% { transform: scale(1.15, 0.85) rotate(-3deg); filter: drop-shadow(0 0 16px #fda4af); }
+            40% { transform: scale(0.9, 1.15) rotate(3deg); filter: drop-shadow(0 0 20px #f43f5e); }
+            60% { transform: scale(1.1, 0.95) rotate(-2deg); }
+            80% { transform: scale(0.95, 1.05) rotate(2deg); }
+        }
+        .flame-on {
+            animation: flameFlicker 0.85s infinite alternate ease-in-out;
+            transform-origin: bottom center;
+        }
+
+        /* Realistic Floating Balloons */
+        .floating-balloon {
+            position: fixed;
+            bottom: -150px;
+            pointer-events: auto;
+            cursor: pointer;
+            z-index: 15;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: balloonRise linear infinite;
+        }
+        .floating-balloon:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+        @keyframes balloonRise {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateY(-55vh) rotate(8deg);
+            }
+            100% {
+                transform: translateY(-130vh) rotate(-8deg);
+                opacity: 0.3;
+            }
+        }
+
+        /* Shimmering Soap Bubbles */
+        .soap-bubble {
+            position: fixed;
+            bottom: -80px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85), rgba(255, 182, 193, 0.35) 40%, rgba(186, 147, 255, 0.45) 70%, rgba(255, 255, 255, 0.6) 100%);
+            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.8), inset -4px -4px 10px rgba(244, 114, 182, 0.4), 0 0 16px rgba(255, 255, 255, 0.4);
+            pointer-events: auto;
+            cursor: pointer;
+            z-index: 18;
+            animation: bubbleFloat linear infinite;
+        }
+        .soap-bubble::after {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width: 25%;
+            height: 25%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            filter: blur(1px);
+        }
+        @keyframes bubbleFloat {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.85;
+            }
+            33% {
+                transform: translateY(-40vh) translateX(25px);
+            }
+            66% {
+                transform: translateY(-80vh) translateX(-25px);
+            }
+            100% {
+                transform: translateY(-125vh) translateX(15px);
+                opacity: 0.1;
+            }
+        }
+
+        /* Bubble Pop Animation */
+        .bubble-pop {
+            animation: bubblePopEffect 0.25s forwards ease-out !important;
+        }
+        @keyframes bubblePopEffect {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.6; }
+            100% { transform: scale(1.8); opacity: 0; }
+        }
+
+        /* Interactive Particle Trail on Click */
+        .sparkle-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            animation: particleFloat 1.2s forwards cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes particleFloat {
+            0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 1; }
+            100% { transform: translate(calc(-50% + var(--tw-x)), calc(-50% + var(--tw-y))) scale(1.3) rotate(180deg); opacity: 0; }
+        }
+    
+        /* Mobile Touch Optimizations */
+        button, a, .cursor-pointer, .flip-card, .candle, .soap-bubble, .floating-balloon, canvas {
+            touch-action: manipulation; /* يلغي تأخير الـ 300ms على الموبايل تماماً */
+            -webkit-tap-highlight-color: transparent; /* يمنع المربع الأزرق المزعج عند الضغط في الأندرويد/الآيفون */
+        }
+    </style>
+</head>
+<body class="min-h-screen text-pink-50 relative selection:bg-pink-400 selection:text-white">
+
+<!-- Animated Dynamic Background Canvas for Floating Roses, Petals & Sparkles -->
+<canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+<!-- Interactive Floating Balloons & Bubbles Layer -->
+<div id="interactive-floaters-container" class="fixed inset-0 pointer-events-none z-20 overflow-hidden"></div>
+
+<!-- Floating Ambient Aesthetic Blobs -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute top-10 left-10 w-96 h-96 bg-pink-500/30 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-20 right-10 w-80 h-80 bg-purple-500/30 rounded-full blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
+    <div class="absolute top-1/2 left-1/3 w-72 h-72 bg-rose-400/25 rounded-full blur-3xl"></div>
+</div>
+
+<!-- Floating Action Bar -->
+<div class="fixed top-5 left-5 z-50 flex items-center gap-3">
+    <button id="toggle-music-btn" class="glass-pink p-3 rounded-full text-pink-200 hover:text-white transition-all duration-300 hover:scale-110 shadow-lg group relative" title="تشغيل / إيقاف النغمة الموسيقية">
+        <i data-lucide="music" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
+        <span id="music-indicator" class="w-2.5 h-2.5 rounded-full bg-pink-400 absolute top-2 right-2 animate-ping hidden"></span>
+    </button>
+    <button id="edit-custom-btn" class="glass-pink px-4 py-2.5 rounded-full text-pink-100 hover:text-white transition-all duration-300 hover:scale-105 flex items-center gap-2 text-sm font-bold shadow-lg">
+        <i data-lucide="sparkles" class="w-4 h-4 text-pink-300"></i>
+        <span>تعديل الاسم والتهنئة 🎀</span>
+    </button>
+</div>
+
+<!-- Sound Visualizer floating dots -->
+<div id="visualizer-container" class="fixed top-6 left-36 z-50 flex items-center gap-1 hidden">
+    <div class="w-1.5 h-4 bg-pink-300 rounded-full animate-bounce"></div>
+    <div class="w-1.5 h-6 bg-rose-300 rounded-full animate-bounce" style="animation-delay: 0.15s"></div>
+    <div class="w-1.5 h-8 bg-purple-300 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+    <div class="w-1.5 h-4 bg-pink-200 rounded-full animate-bounce" style="animation-delay: 0.45s"></div>
+</div>
+
+<!-- Real Background Music Audio Element -->
+<audio id="bg-audio" preload="auto">
+    <source src="music.mp3" type="audio/mp3">
+    <source src="audio/music.mp3" type="audio/mp3">
+</audio>
+
+<!-- ==========================================================
+     PIN / Password Security Screen (Requires 7102001)
+     ========================================================== -->
+<div id="passcode-screen" class="fixed inset-0 z-[100] flex items-center justify-center bg-gradient-to-br from-[#1d002c] via-[#3b074d] to-[#6d1354] p-4 transition-all duration-700">
+    <div class="max-w-sm w-full glass-pink p-8 rounded-3xl border-2 border-pink-300/40 text-center shadow-2xl relative overflow-hidden backdrop-blur-2xl">
+        <!-- Floating decorative sparkles inside pin card -->
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-pink-500/25 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-500/25 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-tr from-pink-400 to-purple-400 p-0.5 shadow-lg flex items-center justify-center text-3xl animate-bounce">
+            🔒
+        </div>
+
+        <h2 class="text-2xl font-black text-pink-50 mb-1">منطقة المفاجأة الخاصة 🌸</h2>
+        <p class="text-pink-200 text-xs mb-6 font-medium">هذه الصفحة محمية برمز سري خاص بأميرتنا الجميلة</p>
+
+        <!-- PIN Dots Display (7 digits for 7102001) -->
+        <div id="pin-dots-container" class="flex justify-center items-center gap-2.5 mb-6 transition-transform duration-300">
+            <span class="pin-dot w-3.5 h-3.5 rounded-full border-2 border-pink-300 transition-all duration-200"></span>
+            <span class="pin-dot w-3.5 h-3.5 rounded-full border-2 border-pink-300 transition-all duration-200"></span>
+            <span class="pin-dot w-3.5 h-3.5 rounded-full border-2 border-pink-300 transition-all duration-200"></span>
+            <span class="pin-dot w-3.5 h-3.5 rounded-full border-2 border-pink-300 transition-all duration-200"></span>
+            <span class="pin-dot w-3.5 h-3.5 rounded-full border-2 border-pink-300 transition-all duration-200"></span>
+            <span class="pin-dot w-3.5 h-3.5 rounded-full border-2 border-pink-300 transition-all duration-200"></span>
+            <span class="pin-dot w-3.5 h-3.5 rounded-full border-2 border-pink-300 transition-all duration-200"></span>
+        </div>
+
+        <div id="passcode-feedback" class="text-xs font-bold text-pink-300 min-h-[20px] mb-4 transition-colors">
+            أدخلي الرمز السري للمتابعة ✨
+        </div>
+
+        <!-- Keypad (Numbers 1-9, Clear, 0, Backspace) - Mobile Optimized -->
+        <div id="pin-keypad" class="grid grid-cols-3 gap-3 max-w-[260px] mx-auto select-none" dir="ltr">
+            <button type="button" data-key="1" class="pin-btn flex items-center justify-center h-14 rounded-2xl glass-pink text-xl font-bold text-pink-50 transition-transform active:scale-90 touch-none select-none">1</button>
+            <button type="button" data-key="2" class="pin-btn flex items-center justify-center h-14 rounded-2xl glass-pink text-xl font-bold text-pink-50 transition-transform active:scale-90 touch-none select-none">2</button>
+            <button type="button" data-key="3" class="pin-btn flex items-center justify-center h-14 rounded-2xl glass-pink text-xl font-bold text-pink-50 transition-transform active:scale-90 touch-none select-none">3</button>
+            <button type="button" data-key="4" class="pin-btn flex items-center justify-center h-14 rounded-2xl glass-pink text-xl font-bold text-pink-50 transition-transform active:scale-90 touch-none select-none">4</button>
+            <button type="button" data-key="5" class="pin-btn flex items-center justify-center h-14 rounded-2xl glass-pink text-xl font-bold text-pink-50 transition-transform active:scale-90 touch-none select-none">5</button>
+            <button type="button" data-key="6" class="pin-btn flex items-center justify-center h-14 rounded-2xl glass-pink text-xl font-bold text-pink-50 transition-transform active:scale-90 touch-none select-none">6</button>
+            <button type="button" data-key="7" class="pin-btn flex items-center justify-center h-14 rounded-2xl glass-pink text-xl font-bold text-pink-50 transition-transform active:scale-90 touch-none select-none">7</button>
+            <button type="button" data-key="8" class="pin-btn flex items-center justify-center h-14 rounded-2xl glass-pink text-xl font-bold text-pink-50 transition-transform active:scale-90 touch-none select-none">8</button>
+            <button type="button" data-key="9" class="pin-btn flex items-center justify-center h-14 rounded-2xl glass-pink text-xl font-bold text-pink-50 transition-transform active:scale-90 touch-none select-none">9</button>
+            <button type="button" data-key="clear" class="pin-btn flex items-center justify-center h-14 rounded-2xl glass-pink text-sm font-bold text-pink-300 transition-transform active:scale-90 touch-none select-none">مسح</button>
+            <button type="button" data-key="0" class="pin-btn flex items-center justify-center h-14 rounded-2xl glass-pink text-xl font-bold text-pink-50 transition-transform active:scale-90 touch-none select-none">0</button>
+            <button type="button" data-key="del" class="pin-btn flex items-center justify-center h-14 rounded-2xl glass-pink text-lg font-bold text-pink-300 transition-transform active:scale-90 touch-none select-none">⌫</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Interactive Pastel Surprise Unboxing Modal -->
+<div id="surprise-intro-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-purple-950/90 backdrop-blur-2xl transition-opacity duration-1000 p-4">
+    <div class="text-center max-w-lg w-full flex flex-col items-center">
+        
+        <div class="relative cursor-pointer group my-6 transform transition duration-500 hover:scale-105 active:scale-95" id="open-gift-trigger">
+            <div class="absolute -inset-6 pointer-events-none bg-gradient-to-r from-pink-500 via-rose-400 to-purple-400 rounded-full blur-2xl opacity-80 group-hover:opacity-100 animate-pulse transition duration-700"></div>
+            
+            <!-- Girly Ribbon Gift Box -->
+            <div class="relative w-52 h-52 bg-gradient-to-tr from-rose-400 via-pink-400 to-purple-300 rounded-3xl border-4 border-pink-200 shadow-2xl flex flex-col items-center justify-center overflow-hidden">
+                <!-- Golden Silk Ribbons -->
+                <div class="absolute w-10 h-full pointer-events-none bg-gradient-to-b from-amber-200 via-yellow-300 to-amber-300 shadow-lg"></div>
+                <div class="absolute h-10 w-full pointer-events-none bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-300 shadow-lg"></div>
+                <!-- Cute Ribbon Bow Tie -->
+                <div class="absolute -top-4 w-20 h-14 bg-yellow-300 rounded-full border-2 border-white transform -rotate-12 shadow-lg flex items-center justify-center">
+                    <span class="text-xs">✨</span>
+                </div>
+                <div class="absolute -top-4 w-20 h-14 bg-yellow-300 rounded-full border-2 border-white transform rotate-12 shadow-lg flex items-center justify-center">
+                    <span class="text-xs">✨</span>
+                </div>
+                <div class="relative z-10 text-6xl animate-bounce">🎀</div>
+                <div class="absolute bottom-3 text-xs font-black tracking-widest text-purple-900 bg-white/70 px-3 py-0.5 rounded-full">افتحيني يا قمر!</div>
+            </div>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-black text-gradient-girly mb-2">مفاجأة مجهزة بالحب والبهجة! 🌸👑</h2>
+        <p class="text-pink-200 text-sm md:text-base mb-8 font-medium">اضغطي على صندوق الهدايا لتفجير الفرحة وتشغيل أغنية عيد ميلادكِ السعيدة!</p>
+        
+        <button id="gift-direct-btn" class="px-8 py-3.5 bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-extrabold rounded-2xl shadow-xl shadow-pink-500/40 transform transition hover:scale-105 active:scale-95 text-lg flex items-center gap-2">
+            <span>افتحي المفاجأة الحين 🥳💖</span>
+        </button>
+    </div>
+</div>
+
+<main class="relative z-10 max-w-6xl mx-auto px-4 py-16 space-y-24">
+
+    <!-- Hero Header with Bouncy Feminine Aesthetic -->
+    <header class="text-center pt-8 pb-4 relative">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-pink text-pink-200 text-sm mb-6 animate-balloon shadow-lg">
+            <span>👑 اليوم تبتسم الدنيا لأنها ذكرى ميلاد أميرتنا 👑</span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-black mb-5 tracking-wide leading-tight">
+            عيد ميلاد سعيد يا <br class="sm:hidden">
+            <span id="display-name" class="text-gradient-girly neon-girly-glow">سُكرة الحـياة</span> 🌸✨
+        </h1>
+
+        <p id="display-subtext" class="text-pink-100 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-semibold">
+            كل سنة وأنتِ الوردة المفتحة في بستان قلوبنا، وصاحبة أطيب قلب وأرق ابتسامة! جعل الله سنينك كلها هنا وفرح وراحة بال وسعادة لا تنتهي!
+        </p>
+
+        <!-- Fun Interactive Buttons -->
+        <div class="mt-8 flex justify-center gap-4 flex-wrap">
+            <button onclick="launchHugeConfetti()" class="px-6 py-3.5 rounded-full bg-gradient-to-r from-pink-400 via-rose-400 to-purple-400 text-white font-black hover:shadow-lg hover:shadow-pink-400/50 transform hover:-translate-y-1 transition duration-200 flex items-center gap-2">
+                <span>تفريغ قلوب وزينة وردية 💖🎈</span>
+            </button>
+            <button onclick="burstFlowerShower()" class="px-6 py-3.5 rounded-full bg-gradient-to-r from-rose-400 to-pink-500 text-white font-black hover:shadow-lg hover:shadow-rose-400/50 transform hover:-translate-y-1 transition duration-200 flex items-center gap-2 shadow-md">
+                <span>مطر ورد وبتلات 🌸🌹</span>
+            </button>
+            <button onclick="releaseBalloonsAndBubblesBatch(15)" class="px-6 py-3.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 text-white font-black hover:shadow-lg hover:shadow-purple-400/50 transform hover:-translate-y-1 transition duration-200 flex items-center gap-2 shadow-md">
+                <span>إطلاق بلالين وفقاعات 🎈🫧</span>
+            </button>
+            <button onclick="playJoyfulChime()" class="px-6 py-3.5 rounded-full glass-pink text-pink-100 hover:text-white font-black transform hover:-translate-y-1 transition duration-200 flex items-center gap-2">
+                <span>رنة الأميرة السحرية 🪄✨</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 3D Photo Memories Slider with Polaroid Cute Theme -->
+    <section class="space-y-6">
+        <div class="text-center space-y-2">
+            <span class="px-3.5 py-1 rounded-full text-xs font-black bg-pink-500/30 text-pink-200 border border-pink-400/30">ألبوم الذكريات السكر 📸</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gradient-girly">لحظات تدوم في القلب للأبد 🌸</h2>
+            <p class="text-pink-200 text-sm">شريط صور البولارويد المتحرك (10 ذكريات مميزة) - اسحبي أو اضغطي للتنقل بين أحلى الأيام</p>
+            <div id="slide-counter-badge" class="inline-block mt-1 px-4 py-1 rounded-full bg-pink-400/25 border border-pink-300/40 text-xs font-bold text-pink-100 shadow-sm">
+                صورة <span id="current-index-num" class="text-pink-300 font-black">1</span> من <span id="total-slides-num" class="font-black">10</span>
+            </div>
+        </div>
+
+        <!-- 3D Carousel Stage -->
+        <div class="relative w-full max-w-4xl mx-auto h-[460px] md:h-[500px] flex items-center justify-center carousel-scene overflow-hidden select-none" id="carousel-viewport">
+            <div id="cards-container" class="relative w-full h-full flex items-center justify-center">
+                <!-- Polaroid cards will be dynamically mounted here -->
+            </div>
+
+            <!-- Controls Buttons -->
+            <button id="prev-slide-btn" class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full glass-pink text-pink-100 flex items-center justify-center hover:bg-pink-500/40 transition-all hover:scale-110 shadow-lg" aria-label="الصورة السابقة">
+                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </button>
+            <button id="next-slide-btn" class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full glass-pink text-pink-100 flex items-center justify-center hover:bg-pink-500/40 transition-all hover:scale-110 shadow-lg" aria-label="الصورة التالية">
+                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Slider controls bar -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto px-4">
+            <div id="carousel-indicators" class="flex items-center gap-1.5 flex-wrap justify-center max-w-md"></div>
+            
+            <div class="flex items-center gap-3">
+                <label for="photo-file-input" class="cursor-pointer text-xs sm:text-sm px-4 py-2.5 rounded-2xl glass-pink text-pink-100 hover:text-white transition border border-pink-400/40 flex items-center gap-2 hover:scale-105">
+                    <i data-lucide="image-plus" class="w-4 h-4 text-pink-300"></i>
+                    <span>تغيير أو إضافة صورك 🖼️</span>
+                </label>
+                <input type="file" id="photo-file-input" accept="image/*" multiple class="hidden">
+
+                <button id="toggle-autoplay-btn" class="text-xs sm:text-sm px-4 py-2.5 rounded-2xl glass-pink text-pink-200 hover:text-white transition flex items-center gap-1.5 hover:scale-105">
+                    <i data-lucide="play" class="w-4 h-4 text-pink-300"></i>
+                    <span id="autoplay-text">تشغيل تلقائي</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aesthetic Princess Birthday Cake & Candle Blowing -->
+    <section class="glass-pink rounded-3xl p-8 md:p-12 relative overflow-hidden text-center max-w-3xl mx-auto border-2 border-pink-300/30 shadow-2xl">
+        <div class="absolute -top-16 -right-16 w-44 h-44 bg-rose-400/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-16 -left-16 w-44 h-44 bg-purple-400/20 rounded-full blur-3xl"></div>
+
+        <span class="px-3.5 py-1 rounded-full text-xs font-bold bg-pink-400/20 text-pink-200 border border-pink-400/30">تمني واطفي الشموع 🎂✨</span>
+        <h2 class="text-3xl md:text-4xl font-black mt-3 mb-2 text-gradient-girly">كعكة الفراولة والكراميل الوردي 🍓</h2>
+        <p class="text-pink-100 text-sm md:text-base mb-8 font-medium">
+            غمضي عينيكي وتمني أغلى أمنية في قلبك، ثم اضغطي على الشموع علشان تطفيها وتتحقق بإذن الله!
+        </p>
+
+        <!-- Dynamic Girly Layered Cake -->
+        <div class="relative w-64 md:w-80 mx-auto my-6 flex flex-col items-center">
+            
+            <!-- Candles Holder -->
+            <div id="candles-container" class="flex justify-center items-end gap-7 mb-[-2px] relative z-20">
+                <!-- Candle 1 -->
+                <div class="candle flex flex-col items-center cursor-pointer group" onclick="toggleCandle(0)">
+                    <div id="flame-0" class="w-4 h-6 bg-gradient-to-t from-rose-500 via-pink-300 to-yellow-100 rounded-full flame-on"></div>
+                    <div class="w-3.5 h-16 bg-gradient-to-r from-pink-300 via-pink-200 to-rose-300 rounded-t-sm shadow-md border-x border-pink-300 flex items-center justify-center">
+                        <div class="w-0.5 h-full bg-rose-400/40"></div>
+                    </div>
+                </div>
+                <!-- Candle 2 (Center Crown) -->
+                <div class="candle flex flex-col items-center cursor-pointer group" onclick="toggleCandle(1)">
+                    <div id="flame-1" class="w-4 h-6 bg-gradient-to-t from-rose-500 via-amber-300 to-yellow-100 rounded-full flame-on"></div>
+                    <div class="w-3.5 h-18 bg-gradient-to-r from-purple-300 via-pink-200 to-purple-300 rounded-t-sm shadow-md border-x border-purple-300 flex items-center justify-center">
+                        <div class="w-0.5 h-full bg-purple-400/40"></div>
+                    </div>
+                </div>
+                <!-- Candle 3 -->
+                <div class="candle flex flex-col items-center cursor-pointer group" onclick="toggleCandle(2)">
+                    <div id="flame-2" class="w-4 h-6 bg-gradient-to-t from-rose-500 via-pink-300 to-yellow-100 rounded-full flame-on"></div>
+                    <div class="w-3.5 h-16 bg-gradient-to-r from-pink-300 via-pink-200 to-rose-300 rounded-t-sm shadow-md border-x border-pink-300 flex items-center justify-center">
+                        <div class="w-0.5 h-full bg-rose-400/40"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cake Top Tier (Pastel Pink with Whipped Cream & Cherries) -->
+            <div class="w-48 h-16 bg-gradient-to-b from-pink-300 to-rose-400 rounded-t-3xl shadow-inner relative z-10 flex items-center justify-around px-4 border-t-2 border-white">
+                <span class="text-lg">🍒</span>
+                <span class="text-lg">🍓</span>
+                <span class="text-lg">🌸</span>
+                <span class="text-lg">🍓</span>
+                <span class="text-lg">🍒</span>
+            </div>
+            
+            <!-- Cream Drips Wave -->
+            <div class="w-48 h-3.5 bg-white rounded-b-2xl -mt-1 z-10 shadow-sm border-b border-pink-200"></div>
+
+            <!-- Cake Bottom Tier (Pastel Lilac & Rose Gold details) -->
+            <div class="w-64 h-22 bg-gradient-to-b from-purple-300 to-pink-400 rounded-b-3xl shadow-2xl relative border-t-4 border-white flex flex-col items-center justify-center py-2">
+                <div class="w-full border-t border-dashed border-white/60 my-1"></div>
+                <span class="text-white font-black text-sm tracking-widest uppercase drop-shadow">Happy Birthday Princess</span>
+                <div class="flex gap-2 text-xs mt-1">✨ 💖 🌸 💖 ✨</div>
+            </div>
+
+            <!-- Cake Stand Plate -->
+            <div class="w-72 h-4 bg-gradient-to-r from-amber-100 via-white to-amber-100 rounded-full shadow-2xl -mt-1 border-b-2 border-pink-200"></div>
+        </div>
+
+        <!-- Wish Confirmation Animation Box -->
+        <div id="wish-success-box" class="opacity-0 transition-opacity duration-700 mt-6 p-4 rounded-2xl bg-pink-500/20 border border-pink-400/40 text-pink-100 max-w-md mx-auto">
+            <p class="font-extrabold text-lg">👑 أمنيتك انطلقت للنجوم! يا رب عام مليان حب ورقة وتوفيق وسعادة دايماً 🌸✨</p>
+        </div>
+
+        <button onclick="blowAllCandles()" class="mt-4 px-6 py-2.5 rounded-full bg-rose-500/30 hover:bg-rose-500 text-pink-100 hover:text-white border border-pink-400/50 text-sm font-bold transition active:scale-95 shadow-md">
+            💨 اطفي كل الشموع بنفخة واحدة
+        </button>
+    </section>
+
+    <!-- Flip Compliment Cards: 4 Cute Reasons Why She's Special -->
+    <section class="space-y-6">
+        <div class="text-center space-y-2">
+            <span class="px-3.5 py-1 rounded-full text-xs font-black bg-purple-500/30 text-purple-200 border border-purple-400/30">كروت اللطافة والمحبة 💌</span>
+            <h2 class="text-3xl font-extrabold text-gradient-girly">ليه أنتِ بنوتة مفيش زيك اتنين؟ 💖</h2>
+            <p class="text-pink-200 text-sm">اضغطي على أي كارت عشان يلف وتشوفي الكلام الحلو المكتوب في ضهره</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- Card 1 -->
+            <div class="flip-card h-44 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-xl">
+                    <div class="flip-card-front absolute inset-0 glass-pink rounded-2xl p-5 flex flex-col items-center justify-center text-center border border-pink-300/40">
+                        <span class="text-4xl mb-2">🌸</span>
+                        <h4 class="font-extrabold text-pink-100 text-base">ابتسامتكِ الساحرة</h4>
+                        <span class="text-xs text-pink-300 mt-2">اضغطي للكشف 👆</span>
+                    </div>
+                    <div class="flip-card-back absolute inset-0 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl p-5 flex items-center justify-center text-center shadow-lg">
+                        <p class="text-xs md:text-sm font-bold text-white leading-relaxed">ضحكتكِ بتنور أحلك الأيام وبتنشر فرحة في كل مكان تروحي فيه! 💕</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="flip-card h-44 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-xl">
+                    <div class="flip-card-front absolute inset-0 glass-pink rounded-2xl p-5 flex flex-col items-center justify-center text-center border border-pink-300/40">
+                        <span class="text-4xl mb-2">✨</span>
+                        <h4 class="font-extrabold text-pink-100 text-base">قلبكِ الأبيض</h4>
+                        <span class="text-xs text-pink-300 mt-2">اضغطي للكشف 👆</span>
+                    </div>
+                    <div class="flip-card-back absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl p-5 flex items-center justify-center text-center shadow-lg">
+                        <p class="text-xs md:text-sm font-bold text-white leading-relaxed">أطيب وأحن روح في الدنيا، دايماً بتفكري في سعادة اللي حواليكي قبل نفسك! 🕊️</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="flip-card h-44 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-xl">
+                    <div class="flip-card-front absolute inset-0 glass-pink rounded-2xl p-5 flex flex-col items-center justify-center text-center border border-pink-300/40">
+                        <span class="text-4xl mb-2">👑</span>
+                        <h4 class="font-extrabold text-pink-100 text-base">شياكتكِ وجمالكِ</h4>
+                        <span class="text-xs text-pink-300 mt-2">اضغطي للكشف 👆</span>
+                    </div>
+                    <div class="flip-card-back absolute inset-0 bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl p-5 flex items-center justify-center text-center shadow-lg">
+                        <p class="text-xs md:text-sm font-bold text-white leading-relaxed">حضوركِ دايماً راقي وكلك بهجة ورقة مفيش حد يقدر ينافسك فيها! 💅✨</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="flip-card h-44 cursor-pointer" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-xl">
+                    <div class="flip-card-front absolute inset-0 glass-pink rounded-2xl p-5 flex flex-col items-center justify-center text-center border border-pink-300/40">
+                        <span class="text-4xl mb-2">🧁</span>
+                        <h4 class="font-extrabold text-pink-100 text-base">طاقتكِ الحلوة والمبهجة</h4>
+                        <span class="text-xs text-pink-300 mt-2">اضغطي للكشف 👆</span>
+                    </div>
+                    <div class="flip-card-back absolute inset-0 bg-gradient-to-br from-pink-400 to-purple-600 rounded-2xl p-5 flex items-center justify-center text-center shadow-lg">
+                        <p class="text-xs md:text-sm font-bold text-white leading-relaxed">القعدة معاكي خفيفة على الروح ومليانة سوالف وسعادة مابتخلصش! 🍭</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Scratch Card & Warm Greeting Letter -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Scratch Card with Rose Foil -->
+        <div class="glass-pink rounded-3xl p-6 md:p-8 flex flex-col justify-between border border-pink-300/30 relative">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="px-3.5 py-1 rounded-full text-xs font-bold bg-pink-500/20 text-pink-200 border border-pink-400/30">أمنية قلبية سرية 💌</span>
+                    <button onclick="resetScratchCard()" class="text-xs text-pink-200 hover:text-white underline font-semibold">إعادة التغطية 🔄</button>
+                </div>
+                <h3 class="text-2xl font-bold mb-2 text-pink-50">امسحي الكارت الوردي لكشف المفاجأة ✨</h3>
+                <p class="text-pink-200 text-sm mb-6">مرري إصبعكِ أو الماوس لمسح الطبقة البراقة واكتشاف الكلمات السرية الخاصة بيكي.</p>
+            </div>
+
+            <div class="relative w-full h-48 rounded-2xl overflow-hidden shadow-inner flex items-center justify-center bg-gradient-to-br from-purple-900 to-pink-900 border border-pink-300/40 p-6 text-center select-none">
+                <div id="secret-message-display" class="z-0 space-y-2">
+                    <div class="text-4xl animate-bounce">💖👑🌟</div>
+                    <p class="text-pink-100 font-bold text-base md:text-lg leading-relaxed">
+                        "يا رب كل سنينك اللي جاية تكون وردية وسعيدة زيك، وما تفارق البسمة وجهك الحلو أبداً!"
+                    </p>
+                    <span class="text-xs text-pink-300 font-semibold">— مكتوبة بحب كبير 🌸</span>
+                </div>
+
+                <!-- Rose Gold Scratch Foil Canvas -->
+                <canvas id="scratch-canvas" class="absolute inset-0 z-10 scratch-canvas w-full h-full"></canvas>
+            </div>
+        </div>
+
+        <!-- Personal Dedication Greeting Letter -->
+        <div class="glass-pink rounded-3xl p-6 md:p-8 flex flex-col justify-between border border-pink-300/30">
+            <div>
+                <span class="px-3.5 py-1 rounded-full text-xs font-bold bg-purple-500/20 text-purple-200 border border-purple-400/30">رسالة شخصية من الروح 🎀</span>
+                <h3 class="text-2xl font-bold mt-4 mb-2 text-pink-50">إلى أميرتنا الغالية</h3>
+                <p id="card-message" class="text-pink-100 text-base md:text-lg italic font-medium leading-relaxed my-4">
+                    "في مثل هذا اليوم وُلدت قطعة سكر زادت الدنيا حلاوة ونور. كل عام وأنتِ أرق وأجمل بنوتة، عقبال مية سنة محققة فيها كل اللي بتتمنيه وزيادة!"
+                </p>
+            </div>
+
+            <div class="pt-4 border-t border-pink-200/20 flex items-center justify-between text-xs text-pink-200">
+                <span id="card-sender" class="font-bold">كتب بكل مودة وإخلاص من: صديقكِ الوفي 💖</span>
+                <span>تاريخ الاحتفال: 2026 / 10 / 12</span>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+                <button onclick="copyCelebrationLink()" class="flex-1 py-2.5 rounded-xl glass-pink text-pink-100 hover:text-white text-sm font-bold transition flex items-center justify-center gap-2 hover:scale-105">
+                    <i data-lucide="copy" class="w-4 h-4"></i>
+                    <span>نسخ الرابط 🔗</span>
+                </button>
+                <button onclick="shareWebGreeting()" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 text-white text-sm font-bold transition flex items-center justify-center gap-2 hover:scale-105 shadow-md">
+                    <i data-lucide="share-2" class="w-4 h-4"></i>
+                    <span>مشاركة عبر واتساب 💬</span>
+                </button>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<!-- Customization Modal Drawer -->
+<div id="customize-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-purple-950/85 backdrop-blur-md hidden p-4">
+    <div class="glass-pink rounded-3xl max-w-lg w-full p-6 md:p-8 border-2 border-pink-300/40 text-pink-50 max-h-[90vh] overflow-y-auto space-y-5">
+        <div class="flex items-center justify-between border-b border-pink-300/20 pb-4">
+            <h3 class="text-xl font-bold text-gradient-girly">تخصيص التهنئة بالاسم والرسالة 🎀</h3>
+            <button id="close-modal-btn" class="p-2 hover:bg-white/10 rounded-full transition">
+                <i data-lucide="x" class="w-5 h-5 text-pink-200"></i>
+            </button>
+        </div>
+
+        <div class="space-y-4 text-sm">
+            <div>
+                <label class="block text-pink-200 font-semibold mb-1">اسم البنوتة المحتفى بها:</label>
+                <input type="text" id="input-name" class="w-full bg-purple-900/60 border border-pink-300/30 rounded-xl px-4 py-2.5 focus:border-pink-300 focus:outline-none text-white font-medium" placeholder="مثال: ريم، سارة، ندى، أميرة القلوب...">
+            </div>
+
+            <div>
+                <label class="block text-pink-200 font-semibold mb-1">رسالة التهنئة الرئيسية:</label>
+                <textarea id="input-msg" rows="3" class="w-full bg-purple-900/60 border border-pink-300/30 rounded-xl px-4 py-2.5 focus:border-pink-300 focus:outline-none text-white font-medium resize-none" placeholder="اكتبي كلامك الحلو هنا..."></textarea>
+            </div>
+
+            <div>
+                <label class="block text-pink-200 font-semibold mb-1">الرسالة السرية (تحت كارت المسح):</label>
+                <input type="text" id="input-secret" class="w-full bg-purple-900/60 border border-pink-300/30 rounded-xl px-4 py-2.5 focus:border-pink-300 focus:outline-none text-white font-medium" placeholder="الكلام اللي هيظهر لما تمسح الكارت...">
+            </div>
+
+            <div>
+                <label class="block text-pink-200 font-semibold mb-1">اسم المُرسل:</label>
+                <input type="text" id="input-sender" class="w-full bg-purple-900/60 border border-pink-300/30 rounded-xl px-4 py-2.5 focus:border-pink-300 focus:outline-none text-white font-medium" placeholder="مثال: رفيقة عمرك / شلتك اللي بتحبك">
+            </div>
+        </div>
+
+        <div class="pt-4 flex gap-3">
+            <button id="save-customization-btn" class="flex-1 py-3 bg-gradient-to-r from-pink-500 via-rose-500 to-purple-500 text-white font-black rounded-xl transition hover:opacity-90 active:scale-95 shadow-lg shadow-pink-500/30">
+                حفظ التعديلات فوراً 🌸💖
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Notification Toast for feedback -->
+<div id="toast" class="fixed bottom-6 right-6 z-50 glass-pink px-5 py-3 rounded-2xl border border-pink-300 text-white font-bold flex items-center gap-2 transform translate-y-24 opacity-0 transition-all duration-300 shadow-2xl pointer-events-none">
+    <i data-lucide="heart" class="w-5 h-5 text-pink-300 fill-pink-300"></i>
+    <span id="toast-text">تمت العملية بنجاح!</span>
+</div>
+
+<script>
+    // ==========================================
+    // SUPER MOBILE TOUCH SYSTEM (Zero Delay & 100% Responsive)
+    // ==========================================
+    function addTapEvent(el, handler) {
+        if (!el) return;
+        let touchStartX = 0;
+        let touchStartY = 0;
+        
+        // Desktop / Mouse support
+        el.addEventListener('click', (e) => {
+            if (e.pointerType !== 'touch') handler(e);
+        });
+        
+        // Mobile Touch support
+        el.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, {passive: true});
+        
+        el.addEventListener('touchend', (e) => {
+            const endX = e.changedTouches[0].screenX;
+            const endY = e.changedTouches[0].screenY;
+            // If finger barely moved, it's a tap!
+            if (Math.abs(endX - touchStartX) < 15 && Math.abs(endY - touchStartY) < 15) {
+                if (e.cancelable) e.preventDefault(); // Stop ghost clicks
+                
+                // Visual touch feedback for buttons
+                const originalTransform = el.style.transform;
+                el.style.transform = 'scale(0.95)';
+                setTimeout(() => el.style.transform = originalTransform, 150);
+                
+                handler(e);
+            }
+        });
+    }
+
+    // Convert all elements that currently use inline "onclick" to the new Tap System
+    setTimeout(() => {
+        document.querySelectorAll('[onclick]').forEach(el => {
+            const originalClickStr = el.getAttribute('onclick');
+            if (originalClickStr && !el.dataset.fastTap) {
+                el.dataset.fastTap = 'true';
+                el.removeAttribute('onclick'); // Remove old slow click
+                const handler = function(e) {
+                    const func = new Function('event', originalClickStr);
+                    func.call(el, e);
+                };
+                addTapEvent(el, handler);
+            }
+        });
+    }, 100); // Run right after DOM is fully ready
+
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    /* ==========================================================
+       Passcode Security Logic (PIN: 7102001)
+       ========================================================== */
+    const REQUIRED_PIN = "7102001";
+    let enteredPin = "";
+
+    function updatePinDotsUI() {
+        const dots = document.querySelectorAll('.pin-dot');
+        dots.forEach((dot, index) => {
+            if (index < enteredPin.length) {
+                dot.classList.add('bg-pink-400', 'scale-110', 'border-pink-200');
+            } else {
+                dot.classList.remove('bg-pink-400', 'scale-110', 'border-pink-200');
+            }
+        });
+    }
+
+    function inputPinDigit(digit) {
+        if (enteredPin.length >= 7) return;
+        enteredPin += digit;
+        playTone(300 + enteredPin.length * 40, 'sine', 0.1, 0.08);
+        updatePinDotsUI();
+
+        if (enteredPin.length === 7) {
+            checkPin();
+        }
+    }
+
+    function deletePinDigit() {
+        if (enteredPin.length > 0) {
+            enteredPin = enteredPin.slice(0, -1);
+            playTone(280, 'triangle', 0.08, 0.06);
+            updatePinDotsUI();
+        }
+    }
+
+    function clearPin() {
+        enteredPin = "";
+        updatePinDotsUI();
+    }
+
+    function checkPin() {
+        const feedback = document.getElementById('passcode-feedback');
+        const container = document.getElementById('pin-dots-container');
+        
+        if (enteredPin === REQUIRED_PIN) {
+            feedback.innerHTML = '<span class="text-green-300">أهلاً بأميرتنا! يتم فتح المفاجأة الآن 💖✨</span>';
+            playJoyfulChime();
+            launchHugeConfetti();
+            
+            const passcodeScreen = document.getElementById('passcode-screen');
+            passcodeScreen.classList.add('opacity-0', 'scale-105', 'pointer-events-none');
+            setTimeout(() => {
+                passcodeScreen.remove();
+            }, 750);
+        } else {
+            feedback.innerHTML = '<span class="text-rose-400">الرمز السري غير صحيح، جربي مرة ثانية 🌸</span>';
+            // Shake animation
+            container.classList.add('-translate-x-3');
+            setTimeout(() => container.classList.remove('-translate-x-3'), 80);
+            setTimeout(() => container.classList.add('translate-x-3'), 160);
+            setTimeout(() => container.classList.remove('translate-x-3'), 240);
+            playTone(180, 'sawtooth', 0.25, 0.15);
+
+            setTimeout(() => {
+                clearPin();
+            }, 500);
+        }
+    }
+
+    
+    // --- Mobile Native Touch Support for Keypad ---
+    document.querySelectorAll('.pin-btn').forEach(btn => {
+        const handleInput = (e) => {
+            if(e.cancelable) e.preventDefault(); // Prevent double firing on touch
+            
+            // Visual feedback (since preventDefault can block CSS :active)
+            btn.style.transform = 'scale(0.85)';
+            btn.style.backgroundColor = 'rgba(244, 114, 182, 0.5)';
+            setTimeout(() => {
+                btn.style.transform = '';
+                btn.style.backgroundColor = '';
+            }, 120);
+
+            const key = btn.getAttribute('data-key');
+            if (key === 'clear') clearPin();
+            else if (key === 'del') deletePinDigit();
+            else inputPinDigit(key);
+            
+            if (navigator.vibrate) navigator.vibrate(15); // Haptic feedback on Android
+        };
+
+        // Attach both touch and mouse safely
+        btn.addEventListener('touchstart', handleInput, {passive: false});
+        btn.addEventListener('mousedown', (e) => {
+            if (e.pointerType !== 'touch') handleInput(e);
+        });
+    });
+    // ----------------------------------------------
+
+    // Support keyboard typing for passcode
+    window.addEventListener('keydown', (e) => {
+        const passcodeScreen = document.getElementById('passcode-screen');
+        if (!passcodeScreen) return;
+        if (e.key >= '0' && e.key <= '9') {
+            inputPinDigit(e.key);
+        } else if (e.key === 'Backspace') {
+            deletePinDigit();
+        } else if (e.key === 'Escape') {
+            clearPin();
+        }
+    });
+
+    /* ==========================================================
+       1. Animated Pastel Background Canvas (Hearts, Sparkles, Floating Bubbles)
+       ========================================================== */
+    const bgCanvas = document.getElementById('bg-canvas');
+    const bgCtx = bgCanvas.getContext('2d');
+    let bgParticles = [];
+
+    function resizeBgCanvas() {
+        bgCanvas.width = window.innerWidth;
+        bgCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeBgCanvas);
+    resizeBgCanvas();
+
+    const flowerEmojis = ['🌸', '🌺', '🌷', '🌹', '💐', '🌼'];
+    const heartEmojis = ['💖', '💕', '💗', '🎀', '✨'];
+
+    class FloatingShape {
+        constructor() {
+            this.reset();
+            // Start at random height across the screen on first load
+            this.y = Math.random() * bgCanvas.height;
+        }
+        reset() {
+            this.x = Math.random() * bgCanvas.width;
+            this.y = bgCanvas.height + Math.random() * 40;
+            this.size = Math.random() * 18 + 14;
+            this.speedY = Math.random() * 1.3 + 0.6;
+            this.speedX = (Math.random() - 0.5) * 1.2;
+            this.opacity = Math.random() * 0.7 + 0.3;
+            
+            // Generate multiple varieties: Real Roses, Falling Petals, Heart Blossoms & Sparkles
+            const dice = Math.random();
+            if (dice < 0.45) {
+                this.type = 'flower';
+                this.text = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+            } else if (dice < 0.75) {
+                this.type = 'petal';
+                this.color = ['#ff758c', '#ff8da1', '#f472b6', '#fda4af', '#f43f5e', '#ffccd5'][Math.floor(Math.random() * 6)];
+            } else {
+                this.type = 'cuteHeart';
+                this.text = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            }
+
+            this.angle = Math.random() * Math.PI * 2;
+            this.angleSpeed = (Math.random() - 0.5) * 0.035;
+            this.oscillationSpeed = Math.random() * 0.03 + 0.01;
+            this.oscillationAmp = Math.random() * 1.8 + 0.8;
+            this.tick = Math.random() * 100;
+        }
+        update() {
+            this.tick += this.oscillationSpeed;
+            this.y -= this.speedY;
+            this.x += Math.sin(this.tick) * this.oscillationAmp + this.speedX;
+            this.angle += this.angleSpeed;
+            if (this.y < -60 || this.x < -60 || this.x > bgCanvas.width + 60) {
+                this.reset();
+            }
+        }
+        draw() {
+            bgCtx.save();
+            bgCtx.translate(this.x, this.y);
+            bgCtx.rotate(this.angle);
+            bgCtx.globalAlpha = this.opacity;
+
+            if (this.type === 'flower' || this.type === 'cuteHeart') {
+                bgCtx.font = `${Math.floor(this.size)}px "Apple Color Emoji", "Segoe UI Emoji", sans-serif`;
+                bgCtx.textAlign = 'center';
+                bgCtx.textBaseline = 'middle';
+                bgCtx.fillText(this.text, 0, 0);
+            } else if (this.type === 'petal') {
+                // Soft Curved Rose Petal
+                bgCtx.fillStyle = this.color;
+                bgCtx.beginPath();
+                const w = this.size * 0.6;
+                const h = this.size;
+                bgCtx.moveTo(0, -h / 2);
+                bgCtx.bezierCurveTo(w, -h / 4, w, h / 2, 0, h / 2);
+                bgCtx.bezierCurveTo(-w, h / 2, -w, -h / 4, 0, -h / 2);
+                bgCtx.fill();
+            }
+            bgCtx.restore();
+        }
+    }
+
+    // Populate a rich field of 65 floating flowers and petals
+    for (let i = 0; i < 65; i++) {
+        bgParticles.push(new FloatingShape());
+    }
+
+    function animateBackground() {
+        bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+        bgParticles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animateBackground);
+    }
+    animateBackground();
+
+    /* ==========================================================
+       STREAMING_CHUNK:Interactive Floating Balloons & Soap Bubbles Engine
+       ========================================================== */
+    const floatersContainer = document.getElementById('interactive-floaters-container');
+
+    const balloonColorPalettes = [
+        { main: 'from-pink-400 to-rose-500', shadow: 'rgba(244, 63, 94, 0.4)', decor: '🎀' },
+        { main: 'from-purple-400 to-fuchsia-500', shadow: 'rgba(192, 132, 252, 0.4)', decor: '👑' },
+        { main: 'from-rose-300 to-pink-400', shadow: 'rgba(251, 113, 133, 0.4)', decor: '🌸' },
+        { main: 'from-amber-200 to-pink-300', shadow: 'rgba(253, 186, 116, 0.4)', decor: '✨' },
+        { main: 'from-violet-300 to-pink-400', shadow: 'rgba(167, 139, 250, 0.4)', decor: '💖' }
+    ];
+
+    function createInteractiveBalloon(spawnX = null) {
+        if (!floatersContainer) return;
+        const b = document.createElement('div');
+        b.className = 'floating-balloon flex flex-col items-center select-none group';
+        
+        const pal = balloonColorPalettes[Math.floor(Math.random() * balloonColorPalettes.length)];
+        const left = spawnX !== null ? spawnX : Math.random() * 88 + 4;
+        const duration = Math.random() * 7 + 10; // 10s to 17s
+        const size = Math.random() * 20 + 55; // 55px to 75px
+        const delay = Math.random() * 2;
+
+        b.style.left = `${left}%`;
+        b.style.animationDuration = `${duration}s`;
+        b.style.animationDelay = `${delay}s`;
+
+        b.innerHTML = `
+            <div class="relative rounded-[50%_50%_50%_50%_/_40%_40%_60%_60%] bg-gradient-to-tr ${pal.main} flex items-center justify-center shadow-lg border border-white/40" style="width: ${size}px; height: ${size * 1.25}px; box-shadow: 0 10px 25px ${pal.shadow}, inset -4px -6px 12px rgba(0,0,0,0.1), inset 6px 6px 14px rgba(255,255,255,0.7);">
+                <!-- Highlight shine -->
+                <div class="absolute top-3 left-3 w-4 h-6 rounded-full bg-white/70 -rotate-30 blur-[0.5px]"></div>
+                <span class="text-xs select-none opacity-90 drop-shadow">${pal.decor}</span>
+                <!-- Knot -->
+                <div class="absolute -bottom-1 w-2.5 h-2 bg-rose-400 rounded-b-sm"></div>
+            </div>
+            <!-- Balloon String -->
+            <svg width="14" height="48" class="text-pink-200/60 overflow-visible -mt-0.5">
+                <path d="M 7,0 Q 2,24 7,48" fill="transparent" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+        `;
+
+        // Interactive pop on click / tap with joyful pop sound
+        const popHandler = (e) => {
+            if(e.cancelable) e.preventDefault(); 
+            e.stopPropagation();
+            popBalloon(b);
+        };
+        b.addEventListener('mousedown', popHandler);
+        b.addEventListener('touchstart', popHandler, {passive: false});
+
+        floatersContainer.appendChild(b);
+
+        // Remove element after animation finishes
+        setTimeout(() => {
+            if (b.parentNode) b.remove();
+        }, (duration + delay) * 1000);
+    }
+
+    function popBalloon(balloonEl) {
+        const rect = balloonEl.getBoundingClientRect();
+        playTone(587.33, 'triangle', 0.12, 0.2); // high cheerful pop
+        if (typeof confetti === 'function') {
+            confetti({
+                particleCount: 22,
+                spread: 60,
+                origin: {
+                    x: (rect.left + rect.width / 2) / window.innerWidth,
+                    y: (rect.top + rect.height / 2) / window.innerHeight
+                },
+                colors: ['#ff758c', '#ff7eb3', '#c084fc', '#ffffff']
+            });
+        }
+        balloonEl.remove();
+    }
+
+    function createInteractiveBubble(spawnX = null) {
+        if (!floatersContainer) return;
+        const bubble = document.createElement('div');
+        bubble.className = 'soap-bubble';
+
+        const left = spawnX !== null ? spawnX : Math.random() * 92 + 3;
+        const size = Math.random() * 35 + 28; // 28px to 63px
+        const duration = Math.random() * 6 + 7; // 7s to 13s
+        const delay = Math.random() * 2;
+
+        bubble.style.left = `${left}%`;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.animationDuration = `${duration}s`;
+        bubble.style.animationDelay = `${delay}s`;
+
+        // Interactive pop
+        const popBubbleHandler = (e) => {
+            if(e.cancelable) e.preventDefault(); 
+            e.stopPropagation();
+            popSoapBubble(bubble);
+        };
+        bubble.addEventListener('mousedown', popBubbleHandler);
+        bubble.addEventListener('touchstart', popBubbleHandler, {passive: false});
+
+        floatersContainer.appendChild(bubble);
+
+        setTimeout(() => {
+            if (bubble.parentNode) bubble.remove();
+        }, (duration + delay) * 1000);
+    }
+
+    function popSoapBubble(bubbleEl) {
+        bubbleEl.classList.add('bubble-pop');
+        playTone(880, 'sine', 0.08, 0.09); // tiny crystal pop
+        setTimeout(() => {
+            if (bubbleEl.parentNode) bubbleEl.remove();
+        }, 220);
+    }
+
+    // Continuous spawner for persistent atmospheric balloons and bubbles
+    function startFloatersLoop() {
+        // Initial batch
+        for (let i = 0; i < 7; i++) {
+            createInteractiveBalloon();
+            createInteractiveBubble();
+        }
+        // Continuous interval
+        setInterval(() => {
+            if (document.hidden) return;
+            if (Math.random() > 0.4) createInteractiveBalloon();
+            createInteractiveBubble();
+            if (Math.random() > 0.5) createInteractiveBubble();
+        }, 2200);
+    }
+    startFloatersLoop();
+
+    // Batch release buttons
+    function releaseBalloonsAndBubblesBatch(count = 12) {
+        for (let i = 0; i < count; i++) {
+            setTimeout(() => {
+                createInteractiveBalloon(Math.random() * 86 + 6);
+                createInteractiveBubble(Math.random() * 90 + 5);
+            }, i * 160);
+        }
+        playJoyfulChime();
+        showToast("🎈 تم إطلاق سرب بلالين وفقاعات الأحلام!");
+    }
+
+    function burstFlowerShower() {
+        if (typeof confetti === 'function') {
+            // Emulate flower shower with custom pastel pink petals and hearts
+            confetti({
+                particleCount: 75,
+                spread: 120,
+                origin: { y: 0.3 },
+                shapes: ['circle'],
+                colors: ['#ff758c', '#ffccd5', '#fda4af', '#f472b6', '#fff1f2', '#c084fc'],
+                scalar: 1.4
+            });
+        }
+        // Spawn 20 extra fast floating flowers in the canvas
+        for (let i = 0; i < 25; i++) {
+            const p = new FloatingShape();
+            p.y = bgCanvas.height + 10;
+            p.speedY = Math.random() * 3 + 2;
+            p.type = 'flower';
+            p.text = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+            bgParticles.push(p);
+        }
+        playTone(659.25, 'triangle', 0.3, 0.15);
+        showToast("🌸 تساقطت زهور المحبة والدلال!");
+    }
+
+    /* ==========================================================
+       2. Click/Tap Sparkle & Heart Trail Spawner (Dynamic Wand Effect)
+       ========================================================== */
+    const sparkleEmojis = ['💖', '✨', '🌸', '🎀', '⭐', '🧁', '🌹', '🫧'];
+
+    // Web Audio API Synthesizer for self-contained sound effects & melodies
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playTone(freq, type = 'sine', duration = 0.25, gainLevel = 0.1) {
+        try {
+            initAudio();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+            gain.gain.setValueAtTime(gainLevel, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        } catch (e) {
+            // Audio context fallback
+        }
+    }
+
+    function playJoyfulChime() {
+        initAudio();
+        const chimeNotes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+        chimeNotes.forEach((freq, idx) => {
+            setTimeout(() => {
+                playTone(freq, 'triangle', 0.4, 0.12);
+            }, idx * 110);
+        });
+    }
+
+    // Happy Birthday Chime Melody Engine
+    const hbdMelody = [
+        { note: 261.63, dur: 0.3 }, // C4
+        { note: 261.63, dur: 0.3 }, // C4
+        { note: 293.66, dur: 0.5 }, // D4
+        { note: 261.63, dur: 0.5 }, // C4
+        { note: 349.23, dur: 0.5 }, // F4
+        { note: 329.63, dur: 0.8 }, // E4
+        { note: 261.63, dur: 0.3 }, // C4
+        { note: 261.63, dur: 0.3 }, // C4
+        { note: 293.66, dur: 0.5 }, // D4
+        { note: 261.63, dur: 0.5 }, // C4
+        { note: 392.00, dur: 0.5 }, // G4
+        { note: 349.23, dur: 0.8 }, // F4
+        { note: 261.63, dur: 0.3 }, // C4
+        { note: 261.63, dur: 0.3 }, // C4
+        { note: 523.25, dur: 0.5 }, // C5
+        { note: 440.00, dur: 0.5 }, // A4
+        { note: 349.23, dur: 0.5 }, // F4
+        { note: 329.63, dur: 0.5 }, // E4
+        { note: 293.66, dur: 0.8 }, // D4
+        { note: 466.16, dur: 0.3 }, // Bb4
+        { note: 466.16, dur: 0.3 }, // Bb4
+        { note: 440.00, dur: 0.5 }, // A4
+        { note: 349.23, dur: 0.5 }, // F4
+        { note: 392.00, dur: 0.5 }, // G4
+        { note: 349.23, dur: 0.9 }  // F4
+    ];
+
+    let isMusicPlaying = false;
+    let musicTimeout = null;
+    const bgAudio = document.getElementById('bg-audio');
+
+    function playHappyBirthdayMelody(noteIndex = 0) {
+        if (!isMusicPlaying) return;
+        if (noteIndex >= hbdMelody.length) {
+            musicTimeout = setTimeout(() => {
+                if (isMusicPlaying) playHappyBirthdayMelody(0);
+            }, 1200);
+            return;
+        }
+
+        const item = hbdMelody[noteIndex];
+        playTone(item.note, 'sine', item.dur, 0.14);
+
+        musicTimeout = setTimeout(() => {
+            playHappyBirthdayMelody(noteIndex + 1);
+        }, item.dur * 1000 + 40);
+    }
+
+    function toggleMusic() {
+        initAudio();
+        const indicator = document.getElementById('music-indicator');
+        const visualizer = document.getElementById('visualizer-container');
+
+        if (!isMusicPlaying) {
+            isMusicPlaying = true;
+            indicator.classList.remove('hidden');
+            visualizer.classList.remove('hidden');
+
+            // Try playing custom audio file first (music.mp3)
+            if (bgAudio) {
+                const playPromise = bgAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        showToast("🎵 تم تشغيل أغنية عيد الميلاد!");
+                    }).catch(() => {
+                        // If file not found or browser blocked, fallback to generated synth melody
+                        playHappyBirthdayMelody(0);
+                        showToast("🎵 نغمة عيد الميلاد السحرية انطلقت!");
+                    });
+                } else {
+                    playHappyBirthdayMelody(0);
+                }
+            } else {
+                playHappyBirthdayMelody(0);
+            }
+        } else {
+            isMusicPlaying = false;
+            if (bgAudio) {
+                bgAudio.pause();
+            }
+            clearTimeout(musicTimeout);
+            indicator.classList.add('hidden');
+            visualizer.classList.add('hidden');
+            showToast("⏸️ تم إيقاف الموسيقى");
+        }
+    }
+
+    // Auto-loop real music if ended
+    if (bgAudio) {
+        bgAudio.addEventListener('ended', () => {
+            if (isMusicPlaying) {
+                bgAudio.currentTime = 0;
+                bgAudio.play().catch(() => {});
+            }
+        });
+    }
+
+    addTapEvent(document.getElementById('toggle-music-btn'), toggleMusic);
+
+    function spawnSparkleTrail(e) {
+        // Prevent trails when interacting with inputs
+        if (['INPUT', 'TEXTAREA', 'BUTTON'].includes(e.target.tagName)) return;
+
+        const count = 4;
+        for (let i = 0; i < count; i++) {
+            const particle = document.createElement('span');
+            particle.className = 'sparkle-particle text-xl select-none';
+            particle.innerText = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
+            
+            const spreadX = (Math.random() - 0.5) * 110;
+            const spreadY = (Math.random() - 0.5) * 110 - 25;
+            
+            particle.style.setProperty('--tw-x', `${spreadX}px`);
+            particle.style.setProperty('--tw-y', `${spreadY}px`);
+            particle.style.left = `${e.clientX}px`;
+            particle.style.top = `${e.clientY}px`;
+
+            document.body.appendChild(particle);
+            setTimeout(() => {
+                particle.remove();
+            }, 1200);
+        }
+    }
+
+    window.addEventListener('click', spawnSparkleTrail);
+    window.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length > 0) {
+            e.clientX = e.touches[0].clientX;
+            e.clientY = e.touches[0].clientY;
+        }
+        spawnSparkleTrail(e);
+    }, {passive: true});
+
+    function launchHugeConfetti() {
+        if (typeof confetti === 'function') {
+            confetti({
+                particleCount: 100,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#ff758c', '#ff7eb3', '#c084fc', '#f472b6', '#ffffff', '#ffd1dc']
+            });
+        }
+        playJoyfulChime();
+        showToast("💖 انفجرت زينة الفرح والمحبة!");
+    }
+
+    // Modal unboxing triggers
+    function triggerUnboxing() {
+        initAudio();
+        const modal = document.getElementById('surprise-intro-modal');
+        if (modal) {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => modal.remove(), 1000);
+        }
+        launchHugeConfetti();
+        if (!isMusicPlaying) toggleMusic();
+    }
+
+    addTapEvent(document.getElementById('open-gift-trigger'), triggerUnboxing);
+    addTapEvent(document.getElementById('gift-direct-btn'), triggerUnboxing);
+
+    /* ==========================================================
+       3. 3D Polaroid Memory Carousel Logic (10 Memories)
+       ========================================================== */
+    const memoryPhotos = [
+        {
+            url: "images/photo1.jpg",
+            caption: "أحلى ابتسامة وأطيب قلب 🌸",
+            sticker: "🎀"
+        },
+        {
+            url: "images/photo2.jpg",
+            caption: "قمر من يومك ونجمة الكل ✨",
+            sticker: "👑"
+        },
+        {
+            url: "images/photo3.jpg",
+            caption: "ضحكة تسوى الدنيا وما فيها 💖",
+            sticker: "🍓"
+        },
+        {
+            url: "images/photo4.jpg",
+            caption: "صاحبة أرق روح وطلة مميزة 🌷",
+            sticker: "🧁"
+        },
+        {
+            url: "images/photo5.jpg",
+            caption: "عقبال سنين الدنيا في راحة وهنا 🌸",
+            sticker: "💫"
+        },
+        {
+            url: "images/photo6.jpg",
+            caption: "أيام الفرحة والمغامرات السوا 🎈",
+            sticker: "🎉"
+        },
+        {
+            url: "images/photo7.jpg",
+            caption: "ملكة الأناقة والكاريزما 💅",
+            sticker: "💄"
+        },
+        {
+            url: "images/photo8.jpg",
+            caption: "عفوية وجمال ماله مثيل 🦋",
+            sticker: "🌺"
+        },
+        {
+            url: "images/photo9.jpg",
+            caption: "شمس دافية بتنور قلوبنا ☀️",
+            sticker: "🐱"
+        },
+        {
+            url: "images/photo10.jpg",
+            caption: "يا رب كل أيامك الجاية ورد وسعادة 🍭",
+            sticker: "🍒"
+        }
+    ];
+
+    let currentSlide = 0;
+    let autoPlayInterval = null;
+    let isAutoPlaying = false;
+
+    function render3DCarousel() {
+        const container = document.getElementById('cards-container');
+        const indicators = document.getElementById('carousel-indicators');
+        const totalNumEl = document.getElementById('total-slides-num');
+        if (totalNumEl) totalNumEl.innerText = memoryPhotos.length;
+        
+        container.innerHTML = '';
+        indicators.innerHTML = '';
+
+        memoryPhotos.forEach((item, index) => {
+            // Polaroid Frame Card
+            const card = document.createElement('div');
+            card.className = 'polaroid-card absolute w-[260px] sm:w-[310px] md:w-[330px] bg-white rounded-3xl p-3.5 pb-6 shadow-2xl cursor-pointer select-none text-slate-800 border-4 border-pink-100 transition-all duration-500';
+            card.onclick = () => {
+                currentSlide = index;
+                updateCarouselPositions();
+            };
+
+            card.innerHTML = `
+                <div class="relative w-full h-60 sm:h-64 rounded-2xl overflow-hidden bg-pink-100 shadow-inner">
+                    <img src="${item.url}" alt="Memory ${index + 1}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://placehold.co/600x400/ffd1dc/c084fc?text=أحلى+بنوتة'">
+                    <!-- Cute Tape & Sticker Decor -->
+                    <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-16 h-5 bg-pink-300/80 rounded-sm shadow-sm backdrop-blur-sm -rotate-2"></div>
+                    <div class="absolute bottom-2 left-2 text-2xl filter drop-shadow">${item.sticker || '🌸'}</div>
+                </div>
+                <div class="mt-4 text-center px-2">
+                    <p class="text-sm font-bold text-pink-700 truncate font-cursive text-xl">${item.caption}</p>
+                    <span class="text-[11px] text-pink-400 font-semibold tracking-wider block mt-1">ذكرى حلوة #${index + 1}</span>
+                </div>
+            `;
+            container.appendChild(card);
+
+            // Indicators
+            const dot = document.createElement('button');
+            dot.className = `h-2 rounded-full transition-all duration-300 ${index === currentSlide ? 'w-6 bg-pink-400' : 'w-2 bg-pink-200/50 hover:bg-pink-300'}`;
+            dot.title = `الذهاب للذكرى #${index + 1}`;
+            dot.onclick = () => {
+                currentSlide = index;
+                updateCarouselPositions();
+            };
+            indicators.appendChild(dot);
+        });
+
+        updateCarouselPositions();
+    }
+
+    function updateCarouselPositions() {
+        const cards = document.querySelectorAll('.polaroid-card');
+        const dots = document.getElementById('carousel-indicators').children;
+        const total = cards.length;
+        const currentNumEl = document.getElementById('current-index-num');
+        if (currentNumEl) currentNumEl.innerText = currentSlide + 1;
+
+        cards.forEach((card, i) => {
+            let offset = i - currentSlide;
+            if (offset > total / 2) offset -= total;
+            if (offset < -total / 2) offset += total;
+
+            const absOffset = Math.abs(offset);
+
+            if (absOffset > 2) {
+                card.style.opacity = '0';
+                card.style.transform = `translateX(${offset * 130}px) scale(0.55)`;
+                card.style.zIndex = '0';
+                card.style.pointerEvents = 'none';
+            } else {
+                card.style.opacity = (1 - absOffset * 0.22).toString();
+                const translateX = offset * 150;
+                const translateZ = -absOffset * 140;
+                const rotateY = -offset * 22;
+                const rotateZ = offset * 3;
+                const scale = 1 - absOffset * 0.12;
+
+                card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) scale(${scale})`;
+                card.style.zIndex = (25 - absOffset).toString();
+                card.style.pointerEvents = 'auto';
+            }
+        });
+
+        Array.from(dots).forEach((dot, idx) => {
+            if (idx === currentSlide) {
+                dot.className = 'w-6 h-2 rounded-full bg-pink-400 transition-all duration-300';
+            } else {
+                dot.className = 'w-2 h-2 rounded-full bg-pink-200/50 hover:bg-pink-300 transition-all duration-300';
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % memoryPhotos.length;
+        updateCarouselPositions();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + memoryPhotos.length) % memoryPhotos.length;
+        updateCarouselPositions();
+    }
+
+    addTapEvent(document.getElementById('next-slide-btn'), nextSlide);
+    addTapEvent(document.getElementById('prev-slide-btn'), prevSlide);
+
+    // Dynamic Photo Upload
+    document.getElementById('photo-file-input').addEventListener('change', function(e) {
+        const files = Array.from(e.target.files);
+        if (files.length === 0) return;
+
+        const defaultStickers = ["🎀", "👑", "🍓", "🧁", "💫", "🎉", "💄", "🌺", "🐱", "🍒"];
+
+        files.forEach((file, fIdx) => {
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                memoryPhotos.unshift({
+                    url: evt.target.result,
+                    caption: "لحظة جميلة ومميزة جديدة 💖✨",
+                    sticker: defaultStickers[fIdx % defaultStickers.length]
+                });
+                render3DCarousel();
+                showToast("✨ تم إضافة صورك الجديدة للألبوم بنجاح!");
+            };
+            reader.readAsDataURL(file);
+        });
+    });
+
+    // Auto Play
+    const toggleAutoplayBtn = document.getElementById('toggle-autoplay-btn');
+    addTapEvent(toggleAutoplayBtn, () => {
+        isAutoPlaying = !isAutoPlaying;
+        if (isAutoPlaying) {
+            autoPlayInterval = setInterval(nextSlide, 2000);
+            document.getElementById('autoplay-text').innerText = "إيقاف تلقائي";
+            toggleAutoplayBtn.classList.add('text-pink-300', 'border-pink-300');
+        } else {
+            clearInterval(autoPlayInterval);
+            document.getElementById('autoplay-text').innerText = "تشغيل تلقائي";
+            toggleAutoplayBtn.classList.remove('text-pink-300', 'border-pink-300');
+        }
+    });
+
+    // Mobile & Mouse Drag Support
+    let touchStartX = 0;
+    let isMouseDown = false;
+    let mouseStartX = 0;
+    const viewport = document.getElementById('carousel-viewport');
+
+    viewport.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', (e) => {
+        const diffX = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(diffX) > 40) {
+            if (diffX > 0) prevSlide();
+            else nextSlide();
+        }
+    }, { passive: true });
+
+    viewport.addEventListener('mousedown', (e) => {
+        isMouseDown = true;
+        mouseStartX = e.clientX;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+        if (!isMouseDown) return;
+        isMouseDown = false;
+        const diffX = e.clientX - mouseStartX;
+        if (Math.abs(diffX) > 50) {
+            if (diffX > 0) prevSlide();
+            else nextSlide();
+        }
+    });
+
+    /* ==========================================================
+       STREAMING_CHUNK:Interactive Cake Candle State Logic
+       ========================================================== */
+    const candleStates = [true, true, true];
+
+    function toggleCandle(idx) {
+        candleStates[idx] = !candleStates[idx];
+        const flameEl = document.getElementById(`flame-${idx}`);
+        
+        if (!candleStates[idx]) {
+            flameEl.classList.remove('flame-on');
+            flameEl.classList.add('opacity-0', 'scale-50');
+            playPuffSound();
+            checkAllCandlesBlown();
+        } else {
+            flameEl.classList.add('flame-on');
+            flameEl.classList.remove('opacity-0', 'scale-50');
+            playTone(440, 'sine', 0.1);
+        }
+    }
+
+    function playPuffSound() {
+        initAudio();
+        try {
+            const bufferSize = audioCtx.sampleRate * 0.2;
+            const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                data[i] = Math.random() * 2 - 1;
+            }
+            const noise = audioCtx.createBufferSource();
+            noise.buffer = buffer;
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(400, audioCtx.currentTime);
+            const gain = audioCtx.createGain();
+            gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.2);
+
+            noise.connect(filter);
+            filter.connect(gain);
+            gain.connect(audioCtx.destination);
+            noise.start();
+        } catch(e) {}
+    }
+
+    function blowAllCandles() {
+        [0, 1, 2].forEach(i => {
+            candleStates[i] = false;
+            const flameEl = document.getElementById(`flame-${i}`);
+            flameEl.classList.remove('flame-on');
+            flameEl.classList.add('opacity-0', 'scale-50');
+        });
+        playPuffSound();
+        checkAllCandlesBlown();
+    }
+
+    function checkAllCandlesBlown() {
+        const allExtinguished = candleStates.every(s => !s);
+        if (allExtinguished) {
+            const successBox = document.getElementById('wish-success-box');
+            successBox.classList.remove('opacity-0');
+            launchHugeConfetti();
+            playJoyfulChime();
+        }
+    }
+
+    /* ==========================================================
+       STREAMING_CHUNK:Interactive Scratch Card Engine
+       ========================================================== */
+    function initScratchCard() {
+        const canvas = document.getElementById('scratch-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const parent = canvas.parentElement;
+
+        canvas.width = parent.clientWidth;
+        canvas.height = parent.clientHeight;
+
+        // Rose Gold / Pastel Pink Shimmer Foil
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        gradient.addColorStop(0, '#f472b6');
+        gradient.addColorStop(0.5, '#fbcfe8');
+        gradient.addColorStop(1, '#db2777');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#831843';
+        ctx.font = 'bold 15px Cairo, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('✨ امسحي هنا بإصبعكِ لكشف المفاجأة ✨', canvas.width / 2, canvas.height / 2);
+
+        let isScratching = false;
+
+        function scratch(e) {
+            if (!isScratching) return;
+            const rect = canvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            const x = clientX - rect.left;
+            const y = clientY - rect.top;
+
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.beginPath();
+            ctx.arc(x, y, 22, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        canvas.onmousedown = () => isScratching = true;
+        window.onmouseup = () => isScratching = false;
+        canvas.onmousemove = scratch;
+
+        canvas.ontouchstart = (e) => { isScratching = true; scratch(e); };
+        window.ontouchend = () => isScratching = false;
+        canvas.ontouchmove = (e) => { 
+            if (isScratching && e.cancelable) e.preventDefault(); // يمنع تحرك الصفحة أثناء الخدش
+            scratch(e); 
+        };
+    }
+
+    function resetScratchCard() {
+        initScratchCard();
+        showToast("✨ تم تغطية الكارت الوردي من جديد!");
+    }
+
+    /* ==========================================================
+       STREAMING_CHUNK:Customization Modal & Sharing Handlers
+       ========================================================== */
+    const customizeModal = document.getElementById('customize-modal');
+    addTapEvent(document.getElementById('edit-custom-btn'), () => {
+        customizeModal.classList.remove('hidden');
+        document.getElementById('input-name').value = document.getElementById('display-name').innerText;
+        document.getElementById('input-msg').value = document.getElementById('display-subtext').innerText;
+    });
+
+    addTapEvent(document.getElementById('close-modal-btn'), () => {
+        customizeModal.classList.add('hidden');
+    });
+
+    addTapEvent(document.getElementById('save-customization-btn'), () => {
+        const nameVal = document.getElementById('input-name').value.trim();
+        const msgVal = document.getElementById('input-msg').value.trim();
+        const secretVal = document.getElementById('input-secret').value.trim();
+        const senderVal = document.getElementById('input-sender').value.trim();
+
+        if (nameVal) {
+            document.getElementById('display-name').innerText = nameVal;
+            document.title = `عيد ميلاد سعيد يا ${nameVal} 🌸👑`;
+        }
+        if (msgVal) {
+            document.getElementById('display-subtext').innerText = msgVal;
+            document.getElementById('card-message').innerText = `"${msgVal}"`;
+        }
+        if (secretVal) {
+            document.getElementById('secret-message-display').innerHTML = `
+                <div class="text-4xl animate-bounce">💖👑🌟</div>
+                <p class="text-pink-100 font-bold text-base md:text-lg leading-relaxed">"${secretVal}"</p>
+                <span class="text-xs text-pink-300 font-semibold">— إهداء خاص من القلب 🌸</span>
+            `;
+            initScratchCard();
+        }
+        if (senderVal) {
+            document.getElementById('card-sender').innerText = `كتب بكل مودة وإخلاص من: ${senderVal} 💖`;
+        }
+
+        customizeModal.classList.add('hidden');
+        showToast("🎉 تم حفظ التعديلات وتجديد الصفحة!");
+        launchHugeConfetti();
+    });
+
+    function showToast(text) {
+        const toast = document.getElementById('toast');
+        document.getElementById('toast-text').innerText = text;
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        setTimeout(() => {
+            toast.classList.add('translate-y-24', 'opacity-0');
+        }, 2800);
+    }
+
+    function copyCelebrationLink() {
+        const dummy = document.createElement('textarea');
+        dummy.value = window.location.href;
+        document.body.appendChild(dummy);
+        dummy.select();
+        try {
+            document.execCommand('copy');
+            showToast("🔗 تم نسخ رابط التهنئة بنجاح!");
+        } catch (err) {
+            showToast("تعذر النسخ التلقائي");
+        }
+        document.body.removeChild(dummy);
+    }
+
+    function shareWebGreeting() {
+        const name = document.getElementById('display-name').innerText;
+        const shareText = `🌸 عيد ميلاد سعيد يا أحلى ${name}! شوفي المفاجأة الجميلة دي معمولة مخصوص علشانك: ${window.location.href}`;
+        const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+        window.open(whatsappUrl, '_blank');
+    }
+
+    window.onload = function () {
+        render3DCarousel();
+        initScratchCard();
+        window.addEventListener('resize', initScratchCard);
+    };
+</script>
+</body>
+</html>
